@@ -26,7 +26,7 @@ const Todo = ({ todo, toggleComplete, deleteTodo }) => {
           {todo.text}
         </p>
       </div>
-      <Button onClick={() => deleteTodo(todo.id)} color="error">
+      <Button onClick={() => deleteTodo(todo.id)} color="danger">
         <DeleteForeverIcon />
       </Button>
     </li>

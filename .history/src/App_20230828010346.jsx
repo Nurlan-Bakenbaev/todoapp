@@ -67,6 +67,7 @@ function App() {
     container: `overflow-hidden bg-gray-100 max-w-[600px] w-full m-auto rounded-md shadow-xl p-5 mt-5`,
     heading: `text-3xl font-bold text-center text-gray-800 p-2`,
     form: `flex justify-between items-center`,
+    inputWrapper: `flex relative`,
     input: `border text-xl outline-none h-full w-full p-3`,
     button: ` text-slate-900 transform hover:scale-110 transition-transform hover:bg-blue-100 rounded-[50%] ml-5 p-3`,
     count: "text-center p-3",
@@ -78,6 +79,7 @@ function App() {
       <div className={style.container}>
         <div className={style.heading}>To Do App </div>
         <form onSubmit={createTodos} className={style.form}>
+          <div className={style.inputWrapper}>
             <input
               onChange={(e) => {
                 setInput(e.target.value);
@@ -88,6 +90,8 @@ function App() {
               type="text"
               placeholder=" something to do"
             />
+            <Button><ClearIcon/> </Button>
+          </div>
           <button onClick={() => createTodos} className={style.button}>
             <AddIcon />
           </button>

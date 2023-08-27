@@ -11,8 +11,6 @@ import {
   addDoc,
   deleteDoc,
 } from "firebase/firestore";
-import { Button } from "@mui/material";
-import ClearIcon from '@mui/icons-material/Clear';
 function App() {
   const [todos, setToDos] = useState([]);
   const [input, setInput] = useState("");
@@ -78,16 +76,19 @@ function App() {
       <div className={style.container}>
         <div className={style.heading}>To Do App </div>
         <form onSubmit={createTodos} className={style.form}>
-            <input
-              onChange={(e) => {
-                setInput(e.target.value);
-                setIsAlert(false);
-              }}
-              value={input}
-              className={style.input}
-              type="text"
-              placeholder=" something to do"
-            />
+        <div>
+        <input
+            onChange={(e) => {
+              setInput(e.target.value);
+              setIsAlert(false);
+            }}
+            value={input}
+            className={style.input}
+            type="text"
+            placeholder=" something to do"
+          />
+          <Button>dele </Button>
+        </div>
           <button onClick={() => createTodos} className={style.button}>
             <AddIcon />
           </button>

@@ -11,8 +11,6 @@ import {
   addDoc,
   deleteDoc,
 } from "firebase/firestore";
-import { Button } from "@mui/material";
-import ClearIcon from '@mui/icons-material/Clear';
 function App() {
   const [todos, setToDos] = useState([]);
   const [input, setInput] = useState("");
@@ -68,7 +66,7 @@ function App() {
     heading: `text-3xl font-bold text-center text-gray-800 p-2`,
     form: `flex justify-between items-center`,
     input: `border text-xl outline-none h-full w-full p-3`,
-    button: ` text-slate-900 transform hover:scale-110 transition-transform hover:bg-blue-100 rounded-[50%] ml-5 p-3`,
+    button: ` text-slate-900 transform hover:scale-110 transition-transform hover:bg-blue-100 rounded-[50%] ml-5`,
     count: "text-center p-3",
     ul: "flex flex-col gap-2 ",
     alert: "w-[35%] p-3 text-[red] text-xl flex items-center ",
@@ -78,16 +76,16 @@ function App() {
       <div className={style.container}>
         <div className={style.heading}>To Do App </div>
         <form onSubmit={createTodos} className={style.form}>
-            <input
-              onChange={(e) => {
-                setInput(e.target.value);
-                setIsAlert(false);
-              }}
-              value={input}
-              className={style.input}
-              type="text"
-              placeholder=" something to do"
-            />
+          <input
+            onChange={(e) => {
+              setInput(e.target.value);
+              setIsAlert(false);
+            }}
+            value={input}
+            className={style.input}
+            type="text"
+            placeholder=" something to do"
+          />
           <button onClick={() => createTodos} className={style.button}>
             <AddIcon />
           </button>
@@ -113,7 +111,7 @@ function App() {
             You have
             {todos.length > 1
               ? todos.length + " todos "
-              : todos.length + " todo"}
+              : ${todo}}
           </p>
         </div>
       </div>
