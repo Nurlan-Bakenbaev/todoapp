@@ -11,10 +11,13 @@ import {
   addDoc,
   deleteDoc,
 } from "firebase/firestore";
+import { Button } from "@mui/material";
+import ClearIcon from '@mui/icons-material/Clear';
 function App() {
   const [todos, setToDos] = useState([]);
   const [input, setInput] = useState("");
   const [isAlert, setIsAlert] = useState(false);
+  console.log(input);
 
   //create todo
 
@@ -35,8 +38,10 @@ function App() {
   useEffect(() => {
     const q = query(collection(db, "todos"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      let todosArr = [];
+      // Changed parameter name to querySnapshot
+      let todosArr = []; // Changed variable name to todosArr
       querySnapshot.forEach((doc) => {
+        // Changed querySnapshotforEach to querySnapshot.forEach
         todosArr.push({ ...doc.data(), id: doc.id });
       });
       setToDos(todosArr);
@@ -73,16 +78,16 @@ function App() {
       <div className={style.container}>
         <div className={style.heading}>To Do App </div>
         <form onSubmit={createTodos} className={style.form}>
-          <input
-            onChange={(e) => {
-              setInput(e.target.value);
-              setIsAlert(false);
-            }}
-            value={input}
-            className={style.input}
-            type="text"
-            placeholder=" something to do"
-          />
+            <input
+              onChange={(e) => {
+                setInput(e.target.value);
+                setIsAlert(false);
+              }}
+              value={input}
+              className={style.input}
+              type="text"
+              placeholder=" something to do"
+            />
           <button onClick={() => createTodos} className={style.button}>
             <AddIcon />
           </button>

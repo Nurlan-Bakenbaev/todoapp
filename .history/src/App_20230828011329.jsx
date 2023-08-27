@@ -11,6 +11,8 @@ import {
   addDoc,
   deleteDoc,
 } from "firebase/firestore";
+import { Button } from "@mui/material";
+import ClearIcon from "@mui/icons-material/Clear";
 function App() {
   const [todos, setToDos] = useState([]);
   const [input, setInput] = useState("");
