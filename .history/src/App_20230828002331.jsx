@@ -108,7 +108,7 @@ function App() {
 
         <div className={todos.length < 1 ? "hidden" : ""}>
           <p className={style.count}>
-            You have
+            You have{" "}
             {todos.length > 1
               ? todos.length + " todos "
               : todos.length + " todo"}

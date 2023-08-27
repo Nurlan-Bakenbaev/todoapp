@@ -23,7 +23,7 @@ function App() {
     e.preventDefault();
     if (input === "") {
       setIsAlert(true);
-      return;
+      return; 
     }
     await addDoc(collection(db, "todos"), {
       text: input,
@@ -108,10 +108,7 @@ function App() {
 
         <div className={todos.length < 1 ? "hidden" : ""}>
           <p className={style.count}>
-            You have
-            {todos.length > 1
-              ? todos.length + " todos "
-              : todos.length + " todo"}
+            You have -{todos.length > 1 ? todos.length + " todos " : " todo"}
           </p>
         </div>
       </div>
